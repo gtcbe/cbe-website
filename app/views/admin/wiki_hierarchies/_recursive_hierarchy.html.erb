@@ -1,0 +1,15 @@
+<li>
+	<%= p_hierarchy.child_id %> <%= p_hierarchy.child.name %>
+	<%= form_for([:admin, p_hierarchy]) do |f| %>
+		<%= f.text_field :parent_id %>
+		<%= f.submit "Save", class: "btn btn-large btn-primary" %>
+	<% end %>
+</li>
+<% children = p_hierarchies.select { |item| item.parent_id == p_hierarchy.child_id } %>
+<% if children.any?  %>
+	<ul>
+		<% children.each do |hierarchy| %>
+			<%= render partial:"recursive_hierarchy", locals: { p_hierarchy: hierarchy, p_hierarchies: p_hierarchies }%>
+		<% end %>
+	</ul>
+<% end  %>

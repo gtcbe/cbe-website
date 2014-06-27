@@ -1,0 +1,191 @@
+@import "bootstrap";
+
+/* universal */
+
+$color_gold: #bf7021;
+$color_dark_gray: #231f20;
+$border_wirdth: 2px;
+
+@mixin gold-border($top_width, $right_width, $bottom_width, $left_width) {
+	border-top: $top_width solid $color_gold;
+	border-bottom: $bottom_width solid $color_gold;
+	border-left: $left_width solid $color_gold;
+	border-right: $right_width solid $color_gold;
+}
+
+html {
+	overflow-y: scroll;
+}
+
+body {
+	/* background-color: #f5f3ce; */
+	background-color: #111;
+	background-image: image-url("tileable_bg.png");
+}
+
+section {
+	overflow: aouto;
+}
+
+textarea {
+	resize: vertical;
+}
+
+/* header */
+
+header {
+}
+
+#header-top {
+  background-color: #000;
+  background-image: image-url("header.png");
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-bottom: 5px;
+  height: 216px;
+  text-align:center;
+  
+	@include gold-border($border-wirdth, $border_wirdth, $border_wirdth, $border_wirdth);
+	
+  form {
+    
+     .form-input-holder{
+      position: relative;
+      display:inline;
+
+      input {
+        height: 20px;
+		margin-bottom: 5px;
+      }
+    }
+	
+	#login_buttons {
+		font-family:Arial, sanserif;
+		font-size: 1.2em;
+		line-height: 1;
+	}
+	
+	#btn-login {
+		background-color: $color_gold;
+		color: white;
+	}
+	
+	#link-signup {
+		color: $color_gold;
+		
+		a {
+			color: $color_gold;
+		}
+	
+		&:hover {
+			color: white;
+			text-decoration: none;
+		}
+	}
+  }
+  
+  .action-bar {
+	position: relative;
+	height: 100%;
+	
+	.pull-bottom {
+		position: absolute;
+		bottom: 0;
+	}
+  }
+}
+
+#header-bottom {
+  background-color: $color_dark_gray;
+  padding-left: 10px;
+  padding-right: 10px;
+  text-align: center;
+  	@include gold-border(0px,  $border_wirdth, $border_wirdth, $border_wirdth);
+}
+
+.user-info {
+	color: white;
+	text-align: right;
+	
+	a {
+		color: $color_gold;
+	}
+}
+
+.tab-item {
+
+	display: inline-block;
+	width: 100px;
+	height: 40px;
+	line-height: 40px;
+	text-align: center;
+	vertical-align: middle;
+	font-family:Garamond, Georgia, serif;
+	font-weight: bold;
+	font-size: 2em;
+	color: $color_gold;
+	margin-left: 50px;
+	margin-right: 50px;
+	
+	a {
+		color: $color_gold;
+	}
+	
+	&:hover {
+		color: white;
+		text-decoration: none;
+	}
+}
+
+	
+.tab-item:before {
+
+	  content:image-url('diamond.png') ;/* with class ModalCarrot ??*/
+	  position:relative; /*or absolute*/
+	  z-index:100000; /*a number that's more than the modal box*/
+	  right:5px;
+	  top:-2px;
+}
+	
+.tab-item:after {
+	  content:image-url('diamond.png') ;/* with class ModalCarrot ??*/
+	  position:relative; /*or absolute*/
+	  z-index:100000; /*a number that's more than the modal box*/
+	  left:5px;
+	  top:-2px;
+}
+
+#logo {
+	padding-top: 15px;
+}
+
+
+.social-icons {
+	padding-top: 9px;
+}
+
+/* content */
+
+#content {
+	background-color: #fefefe;
+	@include gold-border(0px, $border_wirdth, $border_wirdth, $border_wirdth);
+}
+
+
+/* footer */
+
+#footer {
+	padding-left: 10px;
+	color: $color_gold;
+	background-color: $color_dark_gray;
+	height: 50px;
+	line-height: 50px;
+	text-align: center;
+	
+	@include gold-border(0px,  $border_wirdth, $border_wirdth, $border_wirdth);
+	
+	small {
+		display: inline-block;
+		vertical-align: middle;
+	}
+}

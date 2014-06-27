@@ -1,0 +1,17 @@
+<li>
+	<% children = p_hierarchies.select { |item| item.parent_id == p_hierarchy.child_id } %>
+	<% if children.any?  %>
+	<button type="button" data-toggle="collapse" data-target="<%= "#list_#{p_hierarchy.child.name}" %>">
+		+
+	</button>
+	<% end %>
+	<%= link_to p_hierarchy.child.title, wiki_url+"/#{p_hierarchy.child.name}" %>
+
+</li>
+<% if children.any?  %>
+	<ul class="collapse in" id="<%= "list_#{p_hierarchy.child.name}" %>">
+		<% children.each do |hierarchy| %>
+			<%= render partial:"recursive_hierarchy", locals: { p_hierarchy: hierarchy, p_hierarchies: p_hierarchies }%>
+		<% end %>
+	</ul>
+<% end  %>

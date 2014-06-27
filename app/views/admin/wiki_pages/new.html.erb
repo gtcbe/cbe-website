@@ -1,0 +1,17 @@
+<div class="row">
+	<div class="col-md-8 offset-2">
+			<%= form_for([:admin, @page]) do |f| %>
+			
+				<%= f.label :name %>
+				<%= f.text_field :name %>
+				
+				<%= f.label :title %>
+				<%= f.text_field :title %>
+				
+				<%= f.label :text %>
+				<%= f.cktext_area :text, rows: 10 %>
+			
+				<%= f.submit "Save", class: "btn btn-large btn-primary" %>
+			<% end %>
+	</div>
+</div>

@@ -1,0 +1,20 @@
+<div class="row">
+	<div class="col-md-8 offset-2">
+			<%= form_for(@user) do |f| %>
+			
+				<%= f.label :name %>
+				<%= f.text_field :name, :value => @user.name %>
+				
+				<%= f.label :email %>
+				<%= f.text_field :email, :value => @user.email %>
+				
+				<%= f.label :password %>
+				<%= f.password_field :password %>
+				
+				<%= f.label :password_confirmation, "Confirmation" %>
+				<%= f.password_field :password_confirmation %>
+			
+				<%= f.submit "Save", class: "btn btn-large btn-primary" %>
+			<% end %>
+	</div>
+</div>

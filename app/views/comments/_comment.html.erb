@@ -1,0 +1,30 @@
+
+<li class="comment row">
+	<div class="col-md-2">
+		<%= link_to "upvote", upvote_comment_path(comment.id), method: :patch %>
+		<%= link_to "downvote", downvote_comment_path(comment.id), method: :patch %>
+		Votes (<%= comment.votes_for.size %>)
+	</div>
+	<div class="col-md-*">
+	<h4 class="title"><%= comment.title %></h4>
+	<small>
+		<span class="author"><%= comment.author %></span>
+		<span class="timestamp">
+			<%= "#{time_ago_in_words(comment.created_at)} ago" unless comment.created_at.blank? %>
+		</span>
+	</small>
+		<div class="content"><%= comment.text %></div>
+	</div>
+	<div class="actions pull-right">
+		<% if comment.depth < 1 %>
+			<%= link_to "reply", "javascript:void(0)", :onclick => "post_comment(this)", :comment_id => "#{comment.id}" %>
+		<% end %>
+	</div>
+</li>
+<% if comment.comments.any? %>
+<li>
+	<ul class="replies">
+		<%= render comment.comments %>
+	</ul>
+</li>
+<% end %>

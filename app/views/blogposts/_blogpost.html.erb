@@ -1,0 +1,6 @@
+
+		<div class="row blog-header">
+			<h2 class="date col-md-3"><%= blogpost.created_at.strftime("%d.%m.%y") %></h3>
+			<h1 class="col-md-*"><%= link_to blogpost.title, blog_url+"/#{blogpost.name}" %></h1>
+		</div>
+		<p><%= blogpost.text.html_safe %></p>

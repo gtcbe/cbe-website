@@ -1,0 +1,27 @@
+// Place all the styles related to the blogposts controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.blog-header {
+
+	a {
+		margin-right: 10px;
+		font-size: 1em;
+		color: #423;
+		text-transform: uppercase;
+		letter-spacing: -1px;
+		padding-top: 9px;
+		font-weight: bold;
+		line-height: 1;
+	}
+	
+	hover {
+		color: #423;
+		text-decoration: none;
+	}
+	
+	.date {
+		color: #867;
+		vertical-align: bottom;
+	}
+}

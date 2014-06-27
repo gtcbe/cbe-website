@@ -1,0 +1,16 @@
+<div class="row blog-header">
+	<h1 class="col-md-*"><%= link_to wiki_page.title, wiki_url+"/#{wiki_page.name}" %></h1>
+	<% if wiki_page.created_at %>
+		<small class><%= wiki_page.updated_at == wiki_page.created_at ? "Created" : "Last updated" %> <%= time_ago_in_words(wiki_page.updated_at) %> ago</h3>
+	<% end %>
+</div>
+<p><%= process_text(wiki_page.text).html_safe %></p>
+<% if current_user && current_user.is_administrator? %>
+	<div class="actions">
+	<% if wiki_page.id %>
+		<%= link_to "Edit", edit_admin_wiki_page_url(@wiki_page) %>
+	<% else %>
+		<%= link_to "Edit", "#{new_admin_wiki_page_url}/#{@wiki_page.name}" %>
+	<% end %>
+	</div>
+<% end %>

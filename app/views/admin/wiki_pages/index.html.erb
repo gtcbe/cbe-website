@@ -1,0 +1,12 @@
+<h1> Wiki Index </h1>
+
+<section>
+<% if @pages.any? %>
+	<% @pages.each do |page| %>
+		<%= page.id %>, <%= page.name %>, <%= page.title %>
+	<% end %>
+<% end %>
+</section>
+<section>
+	<%= link_to "New Page", new_admin_wiki_page_url %>
+</section>

@@ -1,0 +1,30 @@
+<header>
+	<div class="container">
+		<div class="row" id="header-top">
+			<div class="col-md-8 col-md-offset-2">
+				<%= link_to image_tag("logo.png", id: "logo"), root_url %>
+			</div>
+			<div class="col-md-2 action-bar">
+				<div class="social-icons pull-right">
+					<a href="#"><%= image_tag "logo_fb.png", size: "30" %></a>
+					<a href="#"><%= image_tag "logo_gplus.png", size: "30" %></a>
+					<a href="#"><%= image_tag "logo_twitter.png", size: "30" %></a>
+				</div>
+				<div class="pull-bottom">
+					<% if signed_in? %>
+						<p class="user-info">Hello, <%= current_user.name %> <%= link_to "Logout", logout_path, method: "delete" %></p>
+					<% else %>
+						<%= render "shared/login_form" %>
+					<% end %>
+				</div>
+			</div>
+		</div>
+		<div class="row" id="header-bottom">
+			<div id="navigation">
+				<div class="tab-item" id="tab_blog"><%= link_to "Blog", blog_url %></div>
+				<div class="tab-item" id="tab_wiki"><%= link_to "Wiki", wiki_url %></div>
+				<div class="tab-item" id="tab_wiki"><%= link_to "FAQ", wiki_url %></div>
+			</div>
+		</div>
+	</div>
+</header>

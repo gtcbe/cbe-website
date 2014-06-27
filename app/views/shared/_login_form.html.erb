@@ -1,0 +1,12 @@
+<%= form_for(:session, url: sessions_path) do |f| %>
+	<div class="form-input-holder">
+		<%= f.text_field :email, placeholder: "Email"  %>
+	</div>
+	<div class="form-input-holder">
+		<%= f.password_field :password, placeholder: "Password" %>
+	</div>
+	<div id="login_buttons">
+		<%= link_to "Sign up".upcase, new_user_path, id: "link-signup" %>
+		<%= f.submit "Log in".upcase, class: "btn btn-xs", id: "btn-login" %>
+	</div>
+<% end %>

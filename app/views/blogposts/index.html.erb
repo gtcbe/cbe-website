@@ -1,0 +1,9 @@
+<% @posts.each do |post| %>
+<div class="row">
+	<div class="col-md-8 col-md-offset-1">
+		<%= render post %>
+		<%= link_to "#{post.comments.count} Comments", blog_url+"/#{post.name}"  %>
+		<hr>
+	</div>
+</div>
+<% end %>

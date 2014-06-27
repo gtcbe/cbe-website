@@ -1,0 +1,12 @@
+<%= form_for(@comment) do |f| %>
+		<%= f.label :title %>
+		<%= f.text_area :title %>
+		
+		<%= f.label :text %>
+		<%= f.text_area :text, placeholder: "Enter comment" %>
+		
+		<%= f.hidden_field :commentable_id %>
+		<%= f.hidden_field :commentable_type %>
+		
+		<%= f.submit "Post", class: "btn btn-large btn-primary" %>
+<% end %>

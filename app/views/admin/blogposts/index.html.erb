@@ -1,0 +1,15 @@
+<h1>Blogposts</h1>
+
+<ul>
+<% @posts.each do |post| %>
+<li>
+<%= post.id %>
+<%= post.title %>
+<%= User.find(post.author_id).name %>
+<%= link_to "edit", edit_admin_blogpost_path(post), method: "get" %>
+<%= link_to "delete", admin_blogpost_path(post), method: "delete" %>
+</li>
+<% end %>
+</ul>
+
+<%= link_to "New", new_admin_blogpost_path %>
