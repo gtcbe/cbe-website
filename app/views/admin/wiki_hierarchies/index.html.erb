@@ -1,5 +1,5 @@
 <ul>
-	<% @hierarchies.select { |item| item.parent_id == 0 }.each do |hierarchy| %>
+	<% @hierarchies.select { |item| item.parent_id.nil? || item.parent_id == 0 }.each do |hierarchy| %>
 		<%= render partial:"recursive_hierarchy", locals: { p_hierarchy: hierarchy, p_hierarchies: @hierarchies }%>
 	<% end %>
 </ul>

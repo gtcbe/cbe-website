@@ -16,6 +16,7 @@ class Admin::WikiPagesController < Admin::AdminController
 		@page = WikiPage.create(page_params)
 		if @page.save
 			DynamicRouter.reload
+			WikiHierarchy.create( parent_id: 0, child_id: @page.id)
 			redirect_to @page
 		else
 			render 'new'
@@ -37,9 +38,12 @@ class Admin::WikiPagesController < Admin::AdminController
 	end
 	
 	def destroy
-		WikiPage.find(params[:id]).destroy
-		DynamicRouter.reload
-		redirect_to admin_wiki_pages_url
+		page = WikiPage.find(params[:id])
+		if page
+			page.destroy
+			DynamicRouter.reload
+			redirect_to admin_wiki_pages_url
+		end
 	end
 	
 	

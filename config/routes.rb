@@ -47,7 +47,7 @@ Gtcbe::Application.routes.draw do
 		get "wiki_pages/new/*page_name", to: "wiki_pages#new"
 	end
 	
-	#DynamicRouter.load
+	DynamicRouter.load
 	
 	get "wiki/*page_name", to: "wiki_pages#default"
 	

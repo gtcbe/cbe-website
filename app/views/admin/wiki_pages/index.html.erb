@@ -2,9 +2,18 @@
 
 <section>
 <% if @pages.any? %>
+	<ul>
 	<% @pages.each do |page| %>
-		<%= page.id %>, <%= page.name %>, <%= page.title %>
+		<li>
+			<%= page.id %>
+			<%= page.name %>
+			<%= page.title %>
+			
+			<%= link_to "edit", edit_admin_wiki_page_path(page), method: "get" %>
+			<%= link_to "delete", admin_wiki_page_path(page), method: "delete" %>
+		</li>
 	<% end %>
+	</ul>
 <% end %>
 </section>
 <section>
