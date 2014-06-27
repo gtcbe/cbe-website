@@ -15,18 +15,18 @@ gem 'capistrano-rails', '~> 1.1.1'
 gem 'capistrano-rvm', github: "capistrano/rvm"
 
 
-group :development, :test do
+group :development, :production do
+	gem 'mysql'
+end
+
+group :test do
 	# Use sqlite3 as the database for Active Record
 	gem 'sqlite3'
 	# Use rspec for tests
 	gem 'rspec-rails'
-end
-
-group :test do
 	gem 'selenium-webdriver'
 	gem 'capybara'
 end
-
 
 gem 'sass-rails', '~> 4.0.2'
 gem 'uglifier', '>= 1.3.0'
