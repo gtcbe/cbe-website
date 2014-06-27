@@ -1,13 +1,29 @@
 # config valid only for Capistrano 3.1
 lock '3.1.0'
 
-set :application, 'Contraband Empire'
-set :scm, :none
-set :repository, "."
-set :deploy_via, :copy
+set :stage, :production
+
+set :application, 'contraband_empire'
+set :scm, :git
+set :repo_url, "git@github.com:gtcbe/cbe-website.git"
+set :deploy_via, 'file://.git/'
+
+set :deploy_to, "/home/deploy/contraband_empire"
+set :user, "deploy"
+set :use_sudo, false
+
+set :rails_env, "production"
+
+set :keep_releases, 5
 
 set :linked_files, %w{config/database.yml}
 set :linked_dirs, %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system}
+
+set :pty, true
+
+set :domain, 'www.contraband-empire.com'
+
+roles :all,  fetch(:domain)
 
 namespace :deploy do
 
@@ -18,6 +34,11 @@ namespace :deploy do
       execute :touch, release_path.join('tmp/restart.txt')
     end
   end
+  
+  desc "Symlink shared config files"
+	task :symlink_config_files do
+		run "#{ try_sudo } ln -s #{ deploy_to }/shared/config/database.yml #{ current_path }/config/database.yml"
+	end
 
   after :publishing, :restart
   after :finishing, 'deploy:cleanup'
@@ -32,3 +53,7 @@ namespace :deploy do
   end
 
 end
+
+after "deploy", "deploy:symlink_config_files"
+after "deploy", "deploy:restart"
+after "deploy", "deploy:cleanup"
