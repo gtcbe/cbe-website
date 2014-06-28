@@ -168,7 +168,14 @@ header {
 
 #content {
 	background-color: #fefefe;
+	padding-top: 10px;
+	padding-bottom: 30px;
 	@include gold-border(0px, $border_wirdth, $border_wirdth, $border_wirdth);
+}
+
+.btn-gold {
+	background-color: $color_gold;
+	color: white;
 }
 
 
