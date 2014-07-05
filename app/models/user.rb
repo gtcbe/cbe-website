@@ -28,6 +28,13 @@ class User < ActiveRecord::Base
 		update_attribute(:karma, karma - count)
 	end
 	
+	def send_password_reset
+		self.password_reset_token = User.digest(User.new_session_token)
+		self.password_reset_sent_at = Time.zone.now
+		save!
+		UserMailer.password_reset(self).deliver
+	end
+	
 	private
 	
 		def create_session_token

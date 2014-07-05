@@ -2,8 +2,8 @@ Gtcbe::Application.routes.draw do
 
   mount Ckeditor::Engine => '/ckeditor'
 	# Static pages
-	root 'static_pages#home'
-	#root 'blogposts#index'
+	#root 'static_pages#home'
+	root 'blogposts#index'
 	match '/register', to: 'users#new', via: 'get'
 	match '/login', to: 'sessions#new', via: 'get'
 	match '/logout', to: 'sessions#destroy', via: 'delete'
@@ -19,6 +19,9 @@ Gtcbe::Application.routes.draw do
 	
 	#blogposts
 	resources :blogposts, only: [ :index, :show ]
+	
+	#password resets
+	resources :password_resets, only: [ :new, :edit, :create, :update ]
 	
 	#comments
 	resources :comments, only: [ :new, :create, :show, :edit, :update ] do

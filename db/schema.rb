@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140623195515) do
+ActiveRecord::Schema.define(version: 20140630172100) do
 
   create_table "blogposts", force: true do |t|
     t.string   "name",       null: false
@@ -60,7 +60,9 @@ ActiveRecord::Schema.define(version: 20140623195515) do
     t.string   "session_token"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "karma",            default: 0
+    t.integer  "karma",                  default: 0
+    t.string   "password_reset_token"
+    t.datetime "password_reset_sent_at"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree

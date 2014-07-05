@@ -77,4 +77,17 @@ Gtcbe::Application.configure do
 
   # Use default logging formatter so that PID and timestamp are not suppressed.
   config.log_formatter = ::Logger::Formatter.new
+  
+  config.action_mailer.default_url_options = { :host => "www.contraband-empire.com" }
+  
+    ActionMailer::Base.smtp_settings = {
+	  :user_name => ENV['SMTP_USERNAME'],
+	  :password => ENV['SMTP_PASSWORD'],
+	  :domain => 'contraband-empire.com',
+	  :address => 'smtp.sendgrid.net',
+	  :port => 587,
+	  :authentication => :plain,
+	  :enable_starttls_auto => true
+	}
+  
 end

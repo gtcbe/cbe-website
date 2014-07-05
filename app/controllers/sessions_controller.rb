@@ -6,7 +6,7 @@ def create
 		sign_in(user)
 		redirect_back_or request.referer
 	else
-		render 'new'
+		render :action => "new"
 	end
 end
 
@@ -14,7 +14,6 @@ def destroy
 	sign_out
     redirect_to request.referer
 end
-  
   
 	private
   
