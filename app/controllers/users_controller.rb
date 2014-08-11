@@ -29,7 +29,11 @@ end
 def update
 	@user = User.find(params[:id])
 	if @user.update_attributes(user_params)
-		redirect_to @user
+		if user_params[:avatar].blank?
+			redirect_to @user
+		else
+			render :action => "crop"
+		end
 	else
 		render 'edit'
 	end
@@ -42,7 +46,7 @@ end
 	private
   
 		def user_params
-			params.require(:user).permit(:name, :email, :password, :password_confirmation)
+			params.require(:user).permit(:name, :email, :password, :password_confirmation, :avatar, :crop_x, :crop_y, :crop_w, :crop_h)
 		end
 		
 		def correct_user

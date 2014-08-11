@@ -1,0 +1,14 @@
+<li id="reply-form" class="row">
+<span class="col-md-9 col-md-offset-3">
+<%= form_for(:comment, url: comments_path) do |f| %>
+	
+		<%= f.hidden_field :commentable_id, id:"reply_commentable_id" %>
+		<%= f.hidden_field :commentable_type, id:"reply_commentable_type" %>
+		
+		<div id="reply-text"  class="pull-right" >
+			<%= f.text_area :text, placeholder: "Reply ...", cols:95, rows: 2 %>
+			<%= f.submit "Reply", class: "btn btn-xs  pull-right", id:"btn-reply" %>
+		</div>
+<% end %>
+</span>
+</li>

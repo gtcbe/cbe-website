@@ -89,5 +89,8 @@ Gtcbe::Application.configure do
 	  :authentication => :plain,
 	  :enable_starttls_auto => true
 	}
+	
+	# path to ImageMagick convert
+	Paperclip.options[:command_path] = "/usr/bin"
   
 end

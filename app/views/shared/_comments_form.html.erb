@@ -1,0 +1,23 @@
+<div id="comment-form" class="row">
+<span class="col-md-9">
+<h4>Leave a comment:</h4>
+
+<%= form_for(@comment) do |f| %>
+	
+		<%= f.hidden_field :commentable_id %>
+		<%= f.hidden_field :commentable_type %>
+
+		<div id="comment-title">
+			<%= f.label :title %>
+			<%= f.text_area :title, placeholder: "(optional)", cols: 95, size: 100, rows: 1 %>
+		</div>
+		
+		<div id="comment-text">
+			<%= f.label :text %>
+			<%= f.text_area :text, placeholder: "Enter comment ...", cols:95, rows: 5 %>
+		</div>
+		
+		<%= f.submit "Post", class: "btn pull-right", id:"btn-post" %>
+<% end %>
+</span>
+</div>

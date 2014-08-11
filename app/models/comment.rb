@@ -8,8 +8,8 @@ class Comment < ActiveRecord::Base
 	has_many :comments, dependent: :destroy, as: :commentable
 
 	default_scope -> { order('created_at DESC') }
-	validates :title, presence: true, length: { maximum: 140 }
-	validates :text, presence: true
+	validates :title, length: { maximum: 140 }
+	validates :text, presence: true, length: { maximum: 2500 }
 	
 	def author
 		User.find_by(id: user_id).try(:name) || "Deleted user"

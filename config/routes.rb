@@ -46,6 +46,7 @@ Gtcbe::Application.routes.draw do
 		resources :blogposts
 		resources :wiki_pages
 		resources :wiki_hierarchies
+		resources :comments
 		
 		get "wiki_pages/new/*page_name", to: "wiki_pages#new"
 	end

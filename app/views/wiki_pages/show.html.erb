@@ -7,8 +7,16 @@
 		<%= render @wiki_page %>
 		</section>
 		<hr>
-		<section>
-			<h3>Comments (<%= @wiki_page.comments.count %>)</h3>
+		<section id="comments">
+			<h3>Comments (<%= @wiki_page.comment_count %>)</h3>
+			<% if signed_in?  %>
+				<%= render "shared/comments_form" %>
+				<%= render "shared/reply_form" %>
+			<% else %>
+				<div class="alert alert-danger">
+					Please <%= link_to "log in", :login %> or <%= link_to "sign up", register_url %> to comment.
+				</div>
+			<% end %>
 			<% if @wiki_page.comments.any? %>
 				<ol class="comments">
 					<%= render @comments %>
@@ -16,11 +24,6 @@
 			<% end %>
 		</section>
 		<section>
-			<% if signed_in?  %>
-				<%= render "shared/comments_form" %>
-			<% else %>
-				<%= render "shared/login_form" %>
-			<% end %>
 		</section>
 	</div>
 </div>

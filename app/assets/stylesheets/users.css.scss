@@ -24,3 +24,21 @@ $color_dark_gray: #231f20;
 		color: white;
 	}
 }
+
+.user-edit {
+	input, textarea, select, .uneditable-input {
+		border: 1px solid #bbb;
+		width: 100%;
+		margin-bottom: 15px;
+		@include box_sizing(border-box);
+	}
+
+	input {
+	  height: auto !important;
+	}
+	
+	#btn-edit-save {
+		background-color: $color_gold;
+		color: white;
+	}
+}

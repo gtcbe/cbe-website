@@ -2,19 +2,74 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.comments {
-	list-style: none;
-}
+$color_gold: #bf7021;
 
-.comment {
-	border-style: solid;
-	border-width: 1px;
-	border-color: #0;
-	margin: 5px 5px 5px 5px;
-	padding: 5px 5px 5px 5px;
-	border-radius: 5px;
-}
+section#comments {
 
-.replies {
-	list-style: none;
+	#comment-form {
+	
+		background-color:#faf6f1;
+		padding: 10px 10px 10px 0px;
+	
+		label {
+			display: inline-block;
+			text-align: right;
+			vertical-align: top;
+			margin-right: 5px;
+		}
+
+		#btn-post {
+			background-color: $color_gold;
+			color: white;
+			font-family:Arial, sanserif;
+			font-size: 1.2em;
+			line-height: 1;
+			width: 100px;
+			margin-right: 7px;
+		}
+	
+		#comment-title {
+		}
+		
+		#comment-text {
+			.input {
+			}
+		}
+	}
+
+	.comments {
+		list-style: none;
+		padding-left: 0; 
+		margin-left: 0;
+	}
+
+	.comment {
+		border-style: solid;
+		border-width: 1px;
+		border-color: #0;
+		margin: 5px 5px 5px 5px;
+		padding: 5px 5px 5px 5px;
+		border-radius: 5px;
+	}
+
+	.replies {
+		list-style: none;
+	}
+	
+	#reply-form {
+		display: none;
+		padding: 10px 10px 10px 0px;
+		background-color: #f5f5ff;
+	
+		#btn-reply {
+			background-color: $color_gold;
+			color: white;
+			font-family:Arial, sanserif;
+			font-size: 1.2em;
+			line-height: 1;
+			width: 100px;
+			margin-right: 7px;
+		}
+	}
+
 }
